@@ -8,6 +8,12 @@ const password = document.querySelector(".password");
 const passwordLabel = document.querySelector(".password-label");
 const passwordError = document.querySelector(".password-error");
 
+const createAccountBtn = document.querySelector(".create-account");
+
+createAccountBtn.addEventListener("click", () => {
+  window.location.href = "../pages/registration.html";
+});
+
 loginForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -45,8 +51,6 @@ function validateEmail(email, emailLabel, emailError) {
 function validatePassword(password, passwordLabel, passwordError) {
   const minLength = 6;
   const maxLength = 20;
-  const strongPasswordRegex =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/;
 
   if (!password.value.trim()) {
     return setError(password, passwordLabel, passwordError, "Can’t be empty");
@@ -55,21 +59,14 @@ function validatePassword(password, passwordLabel, passwordError) {
       password,
       passwordLabel,
       passwordError,
-      `Password must be at least ${minLength} characters`
+      `Must be at least ${minLength} characters`
     );
   } else if (password.value.length > maxLength) {
     return setError(
       password,
       passwordLabel,
       passwordError,
-      `Password must be no more than ${maxLength} characters`
-    );
-  } else if (!strongPasswordRegex.test(password.value)) {
-    return setError(
-      password,
-      passwordLabel,
-      passwordError,
-      "Must include uppercase, lowercase, number & symbol."
+      `Must be no more than ${maxLength} characters`
     );
   }
 
