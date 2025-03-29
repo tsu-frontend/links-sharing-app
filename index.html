@@ -11,8 +11,98 @@
       href="./assets/images/favicon-32x32.png"
     />
     <link rel="stylesheet" href="./styles/login.css" />
+    <script src="./scripts/index.js" defer></script>
 
     <title>Frontend Mentor | Link-sharing app</title>
   </head>
-  <body></body>
+
+  <body
+    class="bg-[#FAFAFA] max-w-dvw min-h-dvh flex justify-center items-center"
+  >
+    <div class="container w-[476px] h-fit flex-col items-start">
+      <div class="logo-div w-full h-fit flex justify-center mb-[51px]">
+        <img src="./assets/images/logo-devlinks-large.svg" alt="logo" />
+      </div>
+      <div
+        class="login-form w-full min-h-[200px] bg-[#fff] rounded-xl p-[40px]"
+      >
+        <h1
+          class="self-stretch justify-start text-zinc-800 text-3xl font-bold font-sans leading-[48px]"
+        >
+          Login
+        </h1>
+        <p
+          class="self-stretch justify-start text-neutral-500 text-base font-normal font-sans leading-normal mb-[40px]"
+        >
+          Add your details below to get back into the app
+        </p>
+        <form class="loginForm">
+          <div class="mb-[24px]">
+            <label
+              class="email-label block w-96 justify-start text-zinc-800 text-xs font-normal font-sans leading-none mb-[4px] capitalize"
+              for="email"
+              >email adress</label
+            >
+            <div
+              class="flex items-center pt-[12px] pb-[12px] pl-[16px] pr-[16px] border border-neutral-500 hover:shadow-[0px_0px_32px_0px_rgba(99,60,255,0.25)] rounded-lg"
+            >
+              <img
+                src="./assets/images/icon-email.svg"
+                alt="email-icone"
+                class="mr-[12px]"
+              />
+              <input
+                type="text"
+                placeholder="e.g. alex@email.com"
+                class="email outline-none"
+              />
+              <p
+                class="email-error self-stretch text-right justify-start text-red-500 text-xs font-normal font-sans leading-none ml-auto flex items-center hidden"
+              ></p>
+            </div>
+          </div>
+          <div class="pb-[24px]">
+            <label
+              class="password-label block w-96 justify-start text-zinc-800 text-xs font-normal font-sans leading-none mb-[4px] capitalize"
+              for="password"
+              >Password</label
+            >
+            <div
+              class="flex items-center pt-[12px] pb-[12px] pl-[16px] pr-[16px] border border-neutral-500 hover:shadow-[0px_0px_32px_0px_rgba(99,60,255,0.25)] rounded-lg"
+            >
+              <img
+                src="./assets/images/icon-password.svg"
+                alt="email-icone"
+                class="mr-[12px]"
+              />
+              <input
+                type="password"
+                placeholder="Enter your password"
+                class="password outline-none"
+              />
+              <p
+                class="password-error self-stretch text-right justify-start text-red-500 text-xs font-normal font-sans leading-none ml-auto flex items-center hidden"
+              ></p>
+            </div>
+          </div>
+          <button
+            type="submit"
+            class="login-btn capitalize cursor-pointer bg-violet-600 rounded-lg justify-start hover:bg-violet-300 text-white text-base font-semibold font-sans leading-normal p-[11px] w-full mb-[24px]"
+          >
+            login
+          </button>
+        </form>
+        <div class="self-stretch text-center justify-start">
+          <span
+            class="text-neutral-500 text-base font-normal font-sans leading-normal"
+            >Don’t have an account?
+          </span>
+          <span
+            class="create-account cursor-pointer text-violet-600 text-base font-normal font-sans leading-normal"
+            >Create account</span
+          >
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
