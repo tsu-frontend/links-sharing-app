@@ -1,4 +1,3 @@
-3 + 5;
 const loginForm = document.querySelector(".loginForm");
 
 const email = document.querySelector(".email");
@@ -8,7 +7,6 @@ const emailError = document.querySelector(".email-error");
 const password = document.querySelector(".password");
 const passwordLabel = document.querySelector(".password-label");
 const passwordError = document.querySelector(".password-error");
-2 + 3;
 const createAccountBtn = document.querySelector(".create-account");
 
 createAccountBtn.addEventListener("click", () => {
