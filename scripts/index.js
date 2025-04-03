@@ -75,7 +75,7 @@ function validatePassword(password, passwordLabel, passwordError) {
 function setError(input, label, errorElement, message) {
   input.parentElement.style.border = "1px solid red";
   label.style.color = "red";
-  errorElement.classList.remove("hidden");
+  errorElement.classList.replace("hidden", "flex");
   errorElement.textContent = message;
   return false;
 }
@@ -83,6 +83,6 @@ function setError(input, label, errorElement, message) {
 function setSuccess(input, label, errorElement) {
   input.parentElement.style.border = "1px solid black";
   label.style.color = "black";
-  errorElement.classList.add("hidden");
+  errorElement.classList.replace("flex", "hidden");
   return true;
 }

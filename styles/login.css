@@ -7,6 +7,8 @@
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
     --color-red-500: oklch(0.637 0.237 25.331);
+    --color-amber-200: oklch(0.924 0.12 95.746);
+    --color-amber-300: oklch(0.879 0.169 91.605);
     --color-violet-300: oklch(0.811 0.111 293.571);
     --color-violet-600: oklch(0.541 0.281 293.009);
     --color-zinc-800: oklch(0.274 0.006 286.033);
@@ -196,6 +198,12 @@
   .mr-\[12px\] {
     margin-right: 12px;
   }
+  .mb-1 {
+    margin-bottom: calc(var(--spacing) * 1);
+  }
+  .mb-16 {
+    margin-bottom: calc(var(--spacing) * 16);
+  }
   .mb-\[4px\] {
     margin-bottom: 4px;
   }
@@ -220,6 +228,15 @@
   .hidden {
     display: none;
   }
+  .table {
+    display: table;
+  }
+  .h-10 {
+    height: calc(var(--spacing) * 10);
+  }
+  .h-11 {
+    height: calc(var(--spacing) * 11);
+  }
   .h-fit {
     height: fit-content;
   }
@@ -228,6 +245,15 @@
   }
   .min-h-dvh {
     min-height: 100dvh;
+  }
+  .w-1 {
+    width: calc(var(--spacing) * 1);
+  }
+  .w-10 {
+    width: calc(var(--spacing) * 10);
+  }
+  .w-11 {
+    width: calc(var(--spacing) * 11);
   }
   .w-96 {
     width: calc(var(--spacing) * 96);
@@ -238,11 +264,20 @@
   .w-full {
     width: 100%;
   }
+  .w-screen {
+    width: 100vw;
+  }
   .max-w-dvw {
     max-width: 100dvw;
   }
+  .border-collapse {
+    border-collapse: collapse;
+  }
   .cursor-pointer {
     cursor: pointer;
+  }
+  .resize {
+    resize: both;
   }
   .flex-col {
     flex-direction: column;
@@ -281,14 +316,26 @@
   .bg-\[\#fff\] {
     background-color: #fff;
   }
+  .bg-amber-200 {
+    background-color: var(--color-amber-200);
+  }
+  .bg-amber-300 {
+    background-color: var(--color-amber-300);
+  }
   .bg-violet-600 {
     background-color: var(--color-violet-600);
+  }
+  .bg-white {
+    background-color: var(--color-white);
   }
   .p-\[11px\] {
     padding: 11px;
   }
   .p-\[40px\] {
     padding: 40px;
+  }
+  .pt-10 {
+    padding-top: calc(var(--spacing) * 10);
   }
   .pt-\[12px\] {
     padding-top: 12px;
@@ -302,8 +349,29 @@
   .pb-\[24px\] {
     padding-bottom: 24px;
   }
+  .pl-1 {
+    padding-left: calc(var(--spacing) * 1);
+  }
+  .pl-10 {
+    padding-left: calc(var(--spacing) * 10);
+  }
+  .pl-12 {
+    padding-left: calc(var(--spacing) * 12);
+  }
+  .pl-16 {
+    padding-left: calc(var(--spacing) * 16);
+  }
+  .pl-18 {
+    padding-left: calc(var(--spacing) * 18);
+  }
+  .pl-32 {
+    padding-left: calc(var(--spacing) * 32);
+  }
   .pl-\[16px\] {
     padding-left: 16px;
+  }
+  .pl-\[32px\] {
+    padding-left: 32px;
   }
   .text-center {
     text-align: center;
@@ -368,6 +436,13 @@
   .capitalize {
     text-transform: capitalize;
   }
+  .underline {
+    text-decoration-line: underline;
+  }
+  .outline {
+    outline-style: var(--tw-outline-style);
+    outline-width: 1px;
+  }
   .outline-none {
     --tw-outline-style: none;
     outline-style: none;
@@ -387,6 +462,66 @@
       }
     }
   }
+  .sm\:hidden {
+    @media (width >= 40rem) {
+      display: none;
+    }
+  }
+  .sm\:inline-block {
+    @media (width >= 40rem) {
+      display: inline-block;
+    }
+  }
+  .sm\:w-\[476px\] {
+    @media (width >= 40rem) {
+      width: 476px;
+    }
+  }
+  .sm\:justify-center {
+    @media (width >= 40rem) {
+      justify-content: center;
+    }
+  }
+  .sm\:bg-\[\#FAFAFA\] {
+    @media (width >= 40rem) {
+      background-color: #FAFAFA;
+    }
+  }
+  .sm\:pt-0 {
+    @media (width >= 40rem) {
+      padding-top: calc(var(--spacing) * 0);
+    }
+  }
+  .sm\:pl-0 {
+    @media (width >= 40rem) {
+      padding-left: calc(var(--spacing) * 0);
+    }
+  }
+  .md\:flex {
+    @media (width >= 48rem) {
+      display: flex;
+    }
+  }
+  .md\:inline-block {
+    @media (width >= 48rem) {
+      display: inline-block;
+    }
+  }
+  .md\:w-\[476px\] {
+    @media (width >= 48rem) {
+      width: 476px;
+    }
+  }
+  .md\:justify-center {
+    @media (width >= 48rem) {
+      justify-content: center;
+    }
+  }
+  .md\:bg-\[\#FAFAFA\] {
+    @media (width >= 48rem) {
+      background-color: #FAFAFA;
+    }
+  }
 }
 @property --tw-border-style {
   syntax: "*";
@@ -400,6 +535,11 @@
 @property --tw-font-weight {
   syntax: "*";
   inherits: false;
+}
+@property --tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
 }
 @property --tw-shadow {
   syntax: "*";
