@@ -7,7 +7,7 @@ let formImputs = `<div class="form-imputs flex flex-col w-full bg-[#FAFAFA] p-5 
       <p class="text-[#737373]">
         = <span class="font-bold">Link #<span class="number">1</span></span>
       </p>
-      <button type="button"  class="removeBtn capitalize text-[#737373]">remove</button>
+      <button type="button"  class="cursor-pointer removeBtn capitalize text-[#737373]">remove</button>
     </div>
     <div class="inputs">
       <div>
@@ -82,10 +82,22 @@ function registerDropDownEventListeners() {
     if (!item.hasAttribute("ivent-registered")) {
       item.addEventListener("click", (e) => {
         e.preventDefault();
+        e.stopPropagation();
 
         const dropdown = dropDownContent[index];
+        const isVisible = !dropdown.classList.contains("hidden");
 
-        dropdown.classList.toggle("hidden");
+        dropDownContent.forEach((el) => el.classList.add("hidden"));
+        dropDpwnBtns.forEach((btn) => btn.classList.remove("rotate-180"));
+
+        if (!isVisible) {
+          dropdown.classList.remove("hidden");
+          item.classList.add("rotate-180");
+        }
+      });
+
+      dropDownContent[index].addEventListener("click", (e) => {
+        e.stopPropagation();
       });
 
       item.setAttribute("ivent-registered", "true");
@@ -116,3 +128,8 @@ function registerRemoveButtonEventListeners() {
     }
   });
 }
+
+document.addEventListener("click", () => {
+  document.querySelectorAll(".dropDownContent").forEach((el) => el.classList.add("hidden"));
+  document.querySelectorAll(".dromDownBtn").forEach((btn) => btn.classList.remove("rotate-180"));
+});
