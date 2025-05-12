@@ -1,8 +1,10 @@
 let addNewLinkElement = document.querySelector(".addNewLink");
 let emtyFormElement = document.querySelector(".empty-form");
-let imputGroup = document.querySelector(".imputGroup");
+let inputGroup = document.querySelector(".inputGroup");
+let emtyDivsFroLinks = document.querySelector(".finalLinks");
+let choosenSocialLinsk = [];
 
-let formImputs = `<div class="form-imputs flex flex-col w-full bg-[#FAFAFA] p-5 relative">
+let formInputs = `<div class="form-inputs flex flex-col w-full bg-[#FAFAFA] p-5 relative">
     <div class="inputs-info flex justify-between mb-3">
       <p class="text-[#737373]">
         = <span class="font-bold">Link #<span class="number">1</span></span>
@@ -16,7 +18,7 @@ let formImputs = `<div class="form-imputs flex flex-col w-full bg-[#FAFAFA] p-5 
           <div class="socialIcones flex gap-3 rounded-lg w-full border border-[#D9D9D9] pt-3 pb-3 pl-4 pr-4">
             <img src="../assets/images/icon-github.svg" alt="icone" />
             <p class="font-[400px] text-lg">GitHub</p>
-            <button class="dromDownBtn ml-auto cursor-pointer">
+            <button class="dropDownBtn ml-auto cursor-pointer">
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="9" fill="none" viewBox="0 0 14 9">
                 <path stroke="#633CFF" stroke-width="2" d="m1 1 6 6 6-6" />
               </svg>
@@ -53,34 +55,39 @@ let formImputs = `<div class="form-imputs flex flex-col w-full bg-[#FAFAFA] p-5 
         <label class="block capitalize mb-1 text-[#333] mt-3" for="link">Link</label>
         <div class="flex w-full pt-3 pb-3 pl-4 pr-4 gap-3 border border-[#D9D9D9] rounded-lg">
           <img src="../assets/images/icon-links-header.svg" alt="" />
-          <input class="w-full" type="text" placeholder="e.g. https://www.github.com/johnappleseed" id="link" />
+          <input class="w-full outline-0" type="text" placeholder="e.g. https://www.github.com/johnappleseed" id="link" />
         </div>
       </div>
     </div>
   </div>`;
 
+// main click event to create new form from add new link
 addNewLinkElement.addEventListener("click", () => {
   addNewLinkHandler();
 
   registerDropDownEventListeners();
   registerRemoveButtonEventListeners();
+  registerDropdownItemSelection();
 });
 
+// createing new link form
 function addNewLinkHandler() {
   emtyFormElement.classList.add("hidden");
   let nodeDiv = document.createElement("div");
   nodeDiv.classList.add("empty-cont");
-  nodeDiv.innerHTML = formImputs;
-  imputGroup.appendChild(nodeDiv);
+  nodeDiv.innerHTML = formInputs;
+  inputGroup.appendChild(nodeDiv);
+  inputGroup.classList.remove("hidden");
 }
 
+// event register to drop drop down input options
 function registerDropDownEventListeners() {
-  let dropDpwnBtns = document.querySelectorAll(".dromDownBtn");
+  let dropDpwnBtns = document.querySelectorAll(".dropDownBtn");
   let dropDownContent = document.querySelectorAll(".dropDownContent");
 
   dropDpwnBtns.forEach((item, index) => {
     if (!item.hasAttribute("ivent-registered")) {
-      item.addEventListener("click", (e) => {
+      item.parentElement.addEventListener("click", (e) => {
         e.preventDefault();
         e.stopPropagation();
 
@@ -105,6 +112,13 @@ function registerDropDownEventListeners() {
   });
 }
 
+// logic to close dropdown content if click somewere else
+document.addEventListener("click", () => {
+  document.querySelectorAll(".dropDownContent").forEach((el) => el.classList.add("hidden"));
+  document.querySelectorAll(".dropDownBtn").forEach((btn) => btn.classList.remove("rotate-180"));
+});
+
+// logic to delete form
 function registerRemoveButtonEventListeners() {
   let removeBtns = document.querySelectorAll(".removeBtn");
 
@@ -118,7 +132,7 @@ function registerRemoveButtonEventListeners() {
           parentDiv.remove();
         }
 
-        let parentDivs = document.querySelector(".form-imputs");
+        let parentDivs = document.querySelector(".form-inputs");
         if (!parentDivs) {
           emtyFormElement.classList.remove("hidden");
         }
@@ -129,7 +143,63 @@ function registerRemoveButtonEventListeners() {
   });
 }
 
-document.addEventListener("click", () => {
-  document.querySelectorAll(".dropDownContent").forEach((el) => el.classList.add("hidden"));
-  document.querySelectorAll(".dromDownBtn").forEach((btn) => btn.classList.remove("rotate-180"));
+function registerDropdownItemSelection() {
+  const items = document.querySelectorAll(".dropDownContent > div");
+
+  items.forEach((item) => {
+    if (!item.hasAttribute("ivent-registered-choose")) {
+      item.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        const icone = item.children[0].src;
+        const linkname = item.children[1].textContent;
+
+        item.parentElement.previousElementSibling.children[0].src = `../assets/images/${icone.substring(
+          icone.lastIndexOf("/") + 1
+        )}`;
+
+        item.parentElement.previousElementSibling.children[1].textContent = linkname;
+
+        item.parentElement.previousElementSibling.children[2].classList.remove("rotate-180");
+
+        item.parentElement.classList.add("hidden");
+
+        let insertedContent = `<div class="w-full h-full flex gap-2 items-center">
+              <img src="../assets/images/${icone.substring(
+                icone.lastIndexOf("/") + 1
+              )}" alt="icone" />
+              <p>${linkname}</p>
+              <img src="../assets/images/icon-arrow-right.svg" alt="icone" class="ml-auto" />
+            </div>`;
+
+        console.log(insertedContent);
+
+        let childrenn = emtyDivsFroLinks.children;
+        for (let i = 0; i < childrenn.length; i++) {
+          if (!childrenn[i].innerHTML) {
+            childrenn[i].innerHTML = insertedContent;
+            break;
+          }
+        }
+      });
+
+      item.setAttribute("ivent-registered-choose", "true");
+    }
+  });
+}
+
+document.getElementsByTagName("form")[0].addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  document.querySelectorAll(".inputs").forEach((item) => {
+    emtyFormElement.classList.remove("hidden");
+
+    let chossenObjct = {
+      iconePath: item.firstElementChild.lastElementChild.firstElementChild.children[0].src,
+      iconeName: item.firstElementChild.lastElementChild.firstElementChild.children[1].textContent,
+      socialLink: item.lastElementChild.lastElementChild.lastElementChild.value,
+    };
+    choosenSocialLinsk.push(chossenObjct);
+    inputGroup.innerHTML = ``;
+  });
 });
