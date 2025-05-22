@@ -4,11 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>registration</title>
-    <link rel="stylesheet" href="../pages/registration.html" />
+    <link rel="stylesheet" href="../styles/registration.css" />
   </head>
-  <body>
-    <div>
-      <div>
+  <body class="bg-[#fafafa]">
+    <div class="w-md bg-[#fff] rounded-xl m-auto mt-[138px]">
+      <div class="flex justify-center items-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="41"
@@ -25,11 +25,11 @@
         </svg>
         <span>devlinks</span>
       </div>
-      <div>
+      <div class="pt-[40px] pl-[40px]">
         <h2>Create account</h2>
         <h3>Let’s get you started sharing your links!</h3>
       </div>
-      <form action="">
+      <form action="" class="flex flex-col gap-3 p-[40px]">
         <label for="email">Email Address</label>
         <input type="text" placeholder="e.g. alex@email.com" required />
 
@@ -50,7 +50,9 @@
           required
         />
         <p>Password must contain at least 8 characters</p>
-        <button>Create new account</button>
+        <button class="bg-[#633CFF] text-[#fff] rounded-lg px-[27px] py-[11px]">
+          Create new account
+        </button>
         <p>Already have an account? <a href="../index.html">Login</a></p>
       </form>
     </div>
