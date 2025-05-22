@@ -10,8 +10,11 @@
     --color-red-500: oklch(63.7% 0.237 25.331);
     --color-amber-200: oklch(92.4% 0.12 95.746);
     --color-amber-300: oklch(87.9% 0.169 91.605);
+    --color-blue-500: oklch(62.3% 0.214 259.815);
+    --color-indigo-500: oklch(58.5% 0.233 277.117);
     --color-violet-300: oklch(81.1% 0.111 293.571);
     --color-violet-600: oklch(54.1% 0.281 293.009);
+    --color-fuchsia-500: oklch(66.7% 0.295 322.15);
     --color-zinc-800: oklch(27.4% 0.006 286.033);
     --color-neutral-500: oklch(55.6% 0 0);
     --color-white: #fff;
@@ -293,6 +296,15 @@
   .bg-\[\#fff\] {
     background-color: #fff;
   }
+  .bg-blue-500 {
+    background-color: var(--color-blue-500);
+  }
+  .bg-indigo-500 {
+    background-color: var(--color-indigo-500);
+  }
+  .bg-red-500 {
+    background-color: var(--color-red-500);
+  }
   .bg-violet-600 {
     background-color: var(--color-violet-600);
   }
@@ -395,6 +407,13 @@
   .outline-none {
     --tw-outline-style: none;
     outline-style: none;
+  }
+  .hover\:bg-fuchsia-500 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-fuchsia-500);
+      }
+    }
   }
   .hover\:bg-violet-300 {
     &:hover {
