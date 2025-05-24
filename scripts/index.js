@@ -10,7 +10,7 @@ const passwordError = document.querySelector(".password-error");
 const createAccountBtn = document.querySelector(".create-account");
 
 createAccountBtn.addEventListener("click", () => {
-  window.location.href = "../pages/registration.html";
+  window.location.href = "./pages/registration.html";
 });
 
 loginForm.addEventListener("submit", (e) => {
