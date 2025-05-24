@@ -15,14 +15,10 @@
     --color-violet-300: oklch(81.1% 0.111 293.571);
     --color-violet-600: oklch(54.1% 0.281 293.009);
     --color-fuchsia-500: oklch(66.7% 0.295 322.15);
-    --color-gray-100: oklch(96.7% 0.003 264.542);
-    --color-gray-200: oklch(92.8% 0.006 264.531);
-    --color-gray-500: oklch(55.1% 0.027 264.364);
     --color-zinc-800: oklch(27.4% 0.006 286.033);
     --color-neutral-500: oklch(55.6% 0 0);
     --color-white: #fff;
     --spacing: 0.25rem;
-    --container-md: 28rem;
     --text-xs: 0.75rem;
     --text-xs--line-height: calc(1 / 0.75);
     --text-base: 1rem;
@@ -33,7 +29,6 @@
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
     --leading-normal: 1.5;
-    --radius-md: 0.375rem;
     --radius-lg: 0.5rem;
     --radius-xl: 0.75rem;
     --default-font-family: var(--font-sans);
@@ -207,12 +202,6 @@
       max-width: 96rem;
     }
   }
-  .m-auto {
-    margin: auto;
-  }
-  .mt-\[138px\] {
-    margin-top: 138px;
-  }
   .mr-\[12px\] {
     margin-right: 12px;
   }
@@ -264,9 +253,6 @@
   .w-full {
     width: 100%;
   }
-  .w-md {
-    width: var(--container-md);
-  }
   .w-screen {
     width: 100vw;
   }
@@ -278,9 +264,6 @@
   }
   .flex-col {
     flex-direction: column;
-  }
-  .content-center {
-    align-content: center;
   }
   .items-center {
     align-items: center;
@@ -294,23 +277,11 @@
   .justify-start {
     justify-content: flex-start;
   }
-  .gap-3 {
-    gap: calc(var(--spacing) * 3);
-  }
-  .gap-5 {
-    gap: calc(var(--spacing) * 5);
-  }
-  .gap-\[12px\] {
-    gap: 12px;
-  }
   .self-stretch {
     align-self: stretch;
   }
   .rounded-lg {
     border-radius: var(--radius-lg);
-  }
-  .rounded-md {
-    border-radius: var(--radius-md);
   }
   .rounded-xl {
     border-radius: var(--radius-xl);
@@ -319,17 +290,8 @@
     border-style: var(--tw-border-style);
     border-width: 1px;
   }
-  .border-\[\#D9D9D9\] {
-    border-color: #D9D9D9;
-  }
   .border-neutral-500 {
     border-color: var(--color-neutral-500);
-  }
-  .bg-\[\#633CFF\] {
-    background-color: #633CFF;
-  }
-  .bg-\[\#fafafa\] {
-    background-color: #fafafa;
   }
   .bg-\[\#fff\] {
     background-color: #fff;
@@ -337,14 +299,8 @@
   .bg-blue-500 {
     background-color: var(--color-blue-500);
   }
-  .bg-gray-100 {
-    background-color: var(--color-gray-100);
-  }
-  .bg-gray-200 {
-    background-color: var(--color-gray-200);
-  }
-  .bg-gray-500 {
-    background-color: var(--color-gray-500);
+  .bg-indigo-500 {
+    background-color: var(--color-indigo-500);
   }
   .bg-red-500 {
     background-color: var(--color-red-500);
@@ -358,35 +314,14 @@
   .p-\[11px\] {
     padding: 11px;
   }
-  .p-\[20px\] {
-    padding: 20px;
-  }
   .p-\[40px\] {
     padding: 40px;
-  }
-  .px-\[12px\] {
-    padding-inline: 12px;
-  }
-  .px-\[16px\] {
-    padding-inline: 16px;
-  }
-  .px-\[27px\] {
-    padding-inline: 27px;
-  }
-  .py-\[11px\] {
-    padding-block: 11px;
-  }
-  .py-\[12px\] {
-    padding-block: 12px;
   }
   .pt-10 {
     padding-top: calc(var(--spacing) * 10);
   }
   .pt-\[12px\] {
     padding-top: 12px;
-  }
-  .pt-\[40px\] {
-    padding-top: 40px;
   }
   .pr-\[16px\] {
     padding-right: 16px;
@@ -397,17 +332,11 @@
   .pb-\[24px\] {
     padding-bottom: 24px;
   }
-  .pb-\[40px\] {
-    padding-bottom: 40px;
-  }
   .pl-10 {
     padding-left: calc(var(--spacing) * 10);
   }
   .pl-\[16px\] {
     padding-left: 16px;
-  }
-  .pl-\[40px\] {
-    padding-left: 40px;
   }
   .text-center {
     text-align: center;
@@ -429,15 +358,6 @@
   .text-xs {
     font-size: var(--text-xs);
     line-height: var(--tw-leading, var(--text-xs--line-height));
-  }
-  .text-\[12px\] {
-    font-size: 12px;
-  }
-  .text-\[16px\] {
-    font-size: 16px;
-  }
-  .text-\[32px\] {
-    font-size: 32px;
   }
   .leading-\[48px\] {
     --tw-leading: 48px;
@@ -463,18 +383,6 @@
     --tw-font-weight: var(--font-weight-semibold);
     font-weight: var(--font-weight-semibold);
   }
-  .text-\[\#333\] {
-    color: #333;
-  }
-  .text-\[\#633CFF\] {
-    color: #633CFF;
-  }
-  .text-\[\#737373\] {
-    color: #737373;
-  }
-  .text-\[\#fff\] {
-    color: #fff;
-  }
   .text-neutral-500 {
     color: var(--color-neutral-500);
   }
@@ -493,9 +401,19 @@
   .capitalize {
     text-transform: capitalize;
   }
+  .underline {
+    text-decoration-line: underline;
+  }
   .outline-none {
     --tw-outline-style: none;
     outline-style: none;
+  }
+  .hover\:bg-fuchsia-500 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-fuchsia-500);
+      }
+    }
   }
   .hover\:bg-violet-300 {
     &:hover {
