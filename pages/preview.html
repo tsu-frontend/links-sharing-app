@@ -6,14 +6,32 @@
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   <link rel="stylesheet" href="../styles/preview.css">
-  
+  <script src="../scripts/preview.js"></script>
   <title>Frontend Mentor | Link-sharing app</title>
 </head>
 <body>
 
-  Back to Editor
+ <div class="header">
+   
+    <div class="buttons-head">
+       <div class="top-bar">
+    <button onclick="goBack()" class="first-button">Back to Editor</button>
+    <button onclick="shareLink()" class="second-button">Share Link</button>
+  </div>
+    </div>
+ 
+</div>
 
-  Share Link
+  <div class="card">
+    <img src="./assets/images/Ellipse 3.jpg" alt="Ben Wright" class="avatar">
+    <h2>Ben Wright</h2>
+    <p>ben@sample.com</p>
+    <div class="buttons">
+      <a href="#" class="btn github"><img src="./assets/images/icon-github.svg" alt="github icon" class="icons1"> GitHub</a>
+      <a href="#" class="btn youtube"><img src="./assets/images/icon-youtube.svg" alt="youtube icon" class="icons2 "> YouTube</a>
+      <a href="#" class="btn linkedin"><img src="./assets/images/icon-linkedin.svg" alt="linkedin icon" class="icons3"> LinkedIn</a>
+    </div>
+  </div>
 
 </body>
 </html>

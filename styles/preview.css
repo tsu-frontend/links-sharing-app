@@ -1,0 +1,149 @@
+*{
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    text-align: center;
+}
+
+:root{
+    --Purple: #633CFF;
+    --White: #fff; 
+}
+
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    /* padding: 10px 20px; */
+    background: white;
+    border-bottom: 1px solid #ccc;
+    padding: 16px 16px 16px 24px;
+
+    /* flex-direction: column; */
+    align-items: flex-start;
+    gap: 8px;
+    align-self: stretch;
+    border-radius: 12px;
+  }
+/* 
+  .top-bar button {
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    background: white;
+    border-radius: 6px;
+    cursor: pointer;
+  } */
+
+.buttons-head{
+    /* display: block;
+    margin: 10px auto;
+    width: 80%;
+    padding: 24px; */
+    display: flex;
+    width: 95%;
+    padding: 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    background-color: var(--Purple);
+}
+
+  .first-button{
+    display: flex;
+    padding: 11px 27px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    border-radius: 8px;
+    color: var(--Purple);
+    border: 1px solid var(--Purple);
+}
+
+.second-button{
+    display: flex;
+    padding: 11px 27px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    color: var(--White);
+    border-radius: 8px;
+    background: var(--Purple);
+    border: 1px solid var(--Purple);
+
+}
+  
+  .header {
+    background: var(--Purple);
+    height: 357px;
+    border-bottom-left-radius: 32px;
+    border-bottom-right-radius: 32px;
+  }
+  
+  .card {
+    background: white;
+    width: 300px;
+    margin: -80px auto 0;
+    padding: 20px;
+    border-radius: 12px;
+    /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); */
+  }
+  
+  .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+  
+  h2 {
+    margin: 10px 0 5px;
+  }
+  
+  p {
+    margin: 0 0 20px;
+    color: #666;
+  }
+  
+  .buttons .btn {
+    display: block;
+    align-items: center;
+    gap: 8px;
+    margin: 10px auto;
+    width: 80%;
+    padding: 16px;
+    color: white;
+    background-color: none;
+    text-decoration: none;
+    border-radius: 6px;
+  }
+
+  .buttons .img {
+    width: 20px;
+    height: 20px;
+  }
+
+.icons1{
+    background-color: #1A1A1A;
+  }
+  
+  .icons2{
+    color: var(--White);
+ background-color: #EE3939;
+  }
+
+  .icons3{
+    background-color: #2D68FF;
+  }
+
+.github  {
+    background-color: #1A1A1A;
+  }
+  
+  .youtube {
+    background: #EE3939;
+  }
+  
+  .linkedin {
+    background: #2D68FF;
+    }
