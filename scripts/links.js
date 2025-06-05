@@ -75,6 +75,7 @@ function addNewLinkHandler() {
   emtyFormElement.classList.add("hidden");
   let nodeDiv = document.createElement("div");
   nodeDiv.classList.add("empty-cont");
+  nodeDiv.setAttribute("id", `${Date.now()}`);
   nodeDiv.innerHTML = formInputs;
   inputGroup.appendChild(nodeDiv);
   inputGroup.classList.remove("hidden");
@@ -164,7 +165,7 @@ function registerDropdownItemSelection() {
 
         item.parentElement.classList.add("hidden");
 
-        let insertedContent = `<div class="w-full h-full flex gap-2 items-center">
+        let insertedContent = `<div class="bg-[red] w-full h-full flex gap-2 items-center px-[16px] py-[14px]">
               <img src="../assets/images/${icone.substring(
                 icone.lastIndexOf("/") + 1
               )}" alt="icone" />
