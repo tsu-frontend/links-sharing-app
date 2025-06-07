@@ -155,9 +155,7 @@ function registerDropdownItemSelection() {
         const icone = item.children[0].src;
         const linkname = item.children[1].textContent;
 
-        item.parentElement.previousElementSibling.children[0].src = `../assets/images/${icone.substring(
-          icone.lastIndexOf("/") + 1
-        )}`;
+        item.parentElement.previousElementSibling.children[0].src = `../assets/images/${icone.substring(icone.lastIndexOf("/") + 1)}`;
 
         item.parentElement.previousElementSibling.children[1].textContent = linkname;
 
@@ -166,9 +164,7 @@ function registerDropdownItemSelection() {
         item.parentElement.classList.add("hidden");
 
         let insertedContent = `<div class="bg-[red] w-full h-full flex gap-2 items-center px-[16px] py-[14px]">
-              <img src="../assets/images/${icone.substring(
-                icone.lastIndexOf("/") + 1
-              )}" alt="icone" />
+              <img src="../assets/images/${icone.substring(icone.lastIndexOf("/") + 1)}" alt="icone" />
               <p>${linkname}</p>
               <img src="../assets/images/icon-arrow-right.svg" alt="icone" class="ml-auto" />
             </div>`;
