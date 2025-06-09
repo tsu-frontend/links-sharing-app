@@ -53,7 +53,7 @@ let formInputs = `<div class="form-inputs flex flex-col w-full bg-[#FAFAFA] p-5 
 
       <div>
         <label class="block capitalize mb-1 text-[#333] mt-3" for="link">Link</label>
-        <div class="flex w-full pt-3 pb-3 pl-4 pr-4 gap-3 border border-[#D9D9D9] rounded-lg">
+        <div class="flex w-full pt-3 pb-3 pl-4 pr-4 gap-3 rounded-lg">
           <img src="../assets/images/icon-links-header.svg" alt="" />
           <input class="w-full outline-0" type="text" placeholder="e.g. https://www.github.com/johnappleseed" id="link" />
         </div>
@@ -144,9 +144,9 @@ function registerRemoveButtonEventListeners() {
   });
 }
 
+// logic to see chossen links in device
 function registerDropdownItemSelection() {
   const items = document.querySelectorAll(".dropDownContent > div");
-
   items.forEach((item) => {
     if (!item.hasAttribute("ivent-registered-choose")) {
       item.addEventListener("click", (e) => {
@@ -154,6 +154,34 @@ function registerDropdownItemSelection() {
 
         const icone = item.children[0].src;
         const linkname = item.children[1].textContent;
+
+        console.log(linkname);
+        let bgColor = "";
+        let textColor = "#fff";
+        switch (linkname) {
+          case "GitHub":
+            bgColor = "#191919";
+
+            break;
+          case "YouTube":
+            bgColor = "#ee3838";
+
+            break;
+          case "LinkedIn":
+            bgColor = "#2d68ff";
+
+            break;
+
+          case "Facebook":
+            bgColor = "#2442ac";
+
+            break;
+
+          case "Frontend":
+            bgColor = "#fff";
+            textColor = "#191919";
+            break;
+        }
 
         item.parentElement.previousElementSibling.children[0].src = `../assets/images/${icone.substring(icone.lastIndexOf("/") + 1)}`;
 
@@ -163,9 +191,9 @@ function registerDropdownItemSelection() {
 
         item.parentElement.classList.add("hidden");
 
-        let insertedContent = `<div class="bg-[red] w-full h-full flex gap-2 items-center px-[16px] py-[14px]">
+        let insertedContent = `<div class="bg-[${bgColor}]  overflow-hidden w-full h-full flex gap-2 items-center px-[16px] py-[14px]">
               <img src="../assets/images/${icone.substring(icone.lastIndexOf("/") + 1)}" alt="icone" />
-              <p>${linkname}</p>
+              <p class="text-[${textColor}]">${linkname}</p>
               <img src="../assets/images/icon-arrow-right.svg" alt="icone" class="ml-auto" />
             </div>`;
 
@@ -185,6 +213,7 @@ function registerDropdownItemSelection() {
   });
 }
 
+// logic for after submit form make page fresh visual
 document.getElementsByTagName("form")[0].addEventListener("submit", (e) => {
   e.preventDefault();
 
