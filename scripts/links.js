@@ -113,13 +113,13 @@ function registerDropDownEventListeners() {
   });
 }
 
-// logic to close dropdown content if click somewere else
+// close dropdown content if click somewere else
 document.addEventListener("click", () => {
   document.querySelectorAll(".dropDownContent").forEach((el) => el.classList.add("hidden"));
   document.querySelectorAll(".dropDownBtn").forEach((btn) => btn.classList.remove("rotate-180"));
 });
 
-// logic to delete form
+// delete form
 function registerRemoveButtonEventListeners() {
   let removeBtns = document.querySelectorAll(".removeBtn");
 
@@ -144,10 +144,20 @@ function registerRemoveButtonEventListeners() {
   });
 }
 
-// logic to see chossen links in device
+// see chossen links in mobile device
 function registerDropdownItemSelection() {
   const items = document.querySelectorAll(".dropDownContent > div");
+
   items.forEach((item) => {
+    let parent1 = item.parentElement;
+    let parent2 = parent1.parentElement;
+    let parent3 = parent2.parentElement;
+    let parent4 = parent3.parentElement;
+    let parent5 = parent4.parentElement;
+    let parent6 = parent5.parentElement;
+    let idForMap = parent6.getAttribute("id");
+    // console.log(parent6.getAttribute("id"));
+
     if (!item.hasAttribute("ivent-registered-choose")) {
       item.addEventListener("click", (e) => {
         e.preventDefault();
@@ -155,33 +165,7 @@ function registerDropdownItemSelection() {
         const icone = item.children[0].src;
         const linkname = item.children[1].textContent;
 
-        console.log(linkname);
-        let bgColor = "";
-        let textColor = "#fff";
-        switch (linkname) {
-          case "GitHub":
-            bgColor = "#191919";
-
-            break;
-          case "YouTube":
-            bgColor = "#ee3838";
-
-            break;
-          case "LinkedIn":
-            bgColor = "#2d68ff";
-
-            break;
-
-          case "Facebook":
-            bgColor = "#2442ac";
-
-            break;
-
-          case "Frontend":
-            bgColor = "#fff";
-            textColor = "#191919";
-            break;
-        }
+        let [bgColor, textColor] = setBgAndTextColor(linkname);
 
         item.parentElement.previousElementSibling.children[0].src = `../assets/images/${icone.substring(icone.lastIndexOf("/") + 1)}`;
 
@@ -191,17 +175,19 @@ function registerDropdownItemSelection() {
 
         item.parentElement.classList.add("hidden");
 
-        let insertedContent = `<div class="bg-[${bgColor}]  overflow-hidden w-full h-full flex gap-2 items-center px-[16px] py-[14px]">
+        let insertedContent = `<div id='${idForMap}' class="bg-[${bgColor}]  overflow-hidden w-full h-full flex gap-2 items-center px-[16px] py-[14px]">
               <img src="../assets/images/${icone.substring(icone.lastIndexOf("/") + 1)}" alt="icone" />
               <p class="text-[${textColor}]">${linkname}</p>
               <img src="../assets/images/icon-arrow-right.svg" alt="icone" class="ml-auto" />
             </div>`;
 
-        console.log(insertedContent);
-
         let childrenn = emtyDivsFroLinks.children;
         for (let i = 0; i < childrenn.length; i++) {
-          if (!childrenn[i].innerHTML) {
+          if (childrenn[i].innerHTML && childrenn[i].children[0].getAttribute("id") == idForMap) {
+            childrenn[i].innerHTML = insertedContent;
+            // console.log(idForMap);
+            return;
+          } else if (!childrenn[i].innerHTML) {
             childrenn[i].innerHTML = insertedContent;
             break;
           }
@@ -213,7 +199,7 @@ function registerDropdownItemSelection() {
   });
 }
 
-// logic for after submit form make page fresh visual
+// after submit form make page fresh visual
 document.getElementsByTagName("form")[0].addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -229,3 +215,35 @@ document.getElementsByTagName("form")[0].addEventListener("submit", (e) => {
     inputGroup.innerHTML = ``;
   });
 });
+
+// set background and text coloor for choosen link
+function setBgAndTextColor(nameOfLink) {
+  let bgColor = "";
+  let textColor = "#fff";
+  switch (nameOfLink) {
+    case "GitHub":
+      bgColor = "#191919";
+
+      break;
+    case "YouTube":
+      bgColor = "#ee3838";
+
+      break;
+    case "LinkedIn":
+      bgColor = "#2d68ff";
+
+      break;
+
+    case "Facebook":
+      bgColor = "#2442ac";
+
+      break;
+
+    case "Frontend":
+      bgColor = "#fff";
+      textColor = "#191919";
+      break;
+  }
+
+  return [bgColor, textColor];
+}
